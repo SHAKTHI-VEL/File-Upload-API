@@ -9,7 +9,7 @@ const db=()=>{
 const con=mongoose.connection
 
 con.on('open',()=>{
-    console.log('Connected to database')
+    
 })
 
 }

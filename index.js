@@ -2,17 +2,17 @@ const express = require('express')
 const app = express()
 const port = 3000
 const db=require("./db/db")
+var cors = require('cors')
 
+app.use(cors())
 db();
 
 app.use(express.json())
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
 
-app.use('/user',require('./routes/user'))
+
+app.use('/upload',require('./routes/uploader'))
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`File uploader listening on port ${port}`)
 })
