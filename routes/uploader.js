@@ -14,7 +14,7 @@ router.post('/',upload.single('file'),async(req,res)=>{
 
 router.post('/video',upload.single('file'),async(req,res)=>{
     try {
-        const result=await cloudinary.uploader.upload_large(req.file.path, { resource_type: "video" }, 
+        const result=await cloudinary.uploader.upload(req.file.path, { resource_type: "video",folder:"video" }, 
         function(error, result) {console.log(result, error)});
         res.status(200).json({"sucess":true,"file_url":result.secure_url});
     } catch (error) {
